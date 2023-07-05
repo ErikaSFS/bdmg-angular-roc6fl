@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Observable } from '@rxjs';
-import { HttpClient } from '@angular/commom/http';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 import { End } from '../model/end.model';
 
 @Injectable()
-export class AppService implements OnInit {
+export class AppService {
   private url: string = 'https://viacep.com.br/ws/30160907/json';
 
   constructor(private http: HttpClient) {}
