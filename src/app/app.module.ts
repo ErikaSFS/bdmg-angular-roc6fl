@@ -7,6 +7,7 @@ import { HelloComponent } from '../hello.component';
 import { AppService } from './app.service';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -14,6 +15,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     FormsModule,
     MatExpansionModule,
+    HttpClientModule,
   ],
   declarations: [AppComponent, HelloComponent],
   bootstrap: [AppComponent],
