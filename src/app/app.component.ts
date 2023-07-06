@@ -43,7 +43,7 @@ export class AppComponent {
     });
   }
   buildForm(end?: End) {
-    this.endFrom = this.formBuilder.group({
+    this.endForm = this.formBuilder.group({
       cep: [end ? end.cep : '', [Validators.required, Validators.maxLength(9)]],
       logradouro: [end ? end.logradouro : ''],
       bairro: [end ? end.bairro : ''],
