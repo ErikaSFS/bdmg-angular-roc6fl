@@ -5,11 +5,14 @@ import { End } from './model/end.model';
 
 @Injectable()
 export class AppService {
-  private url: string = 'https://viacep.com.br/ws/30160907/json';
+  private readonly API = 'https://viacep.com.br/ws/';
 
   constructor(private http: HttpClient) {}
-
-  getEnd(): Observable<End> {
-    return this.http.get<End>(this.url);
+  
+  getEndInfo(valor: string =
+  '30160907'): Observable<End> {
+    return this.http.get<End>(
+      `${this.API}` + valor + `/json/`
+    );
   }
 }
