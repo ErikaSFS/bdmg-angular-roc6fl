@@ -1,7 +1,7 @@
 export interface End {
   cep: number;
   logradouro: string;
-  complemnto: string;
+  complemento: string;
   bairro: string;
   localidade: string;
   uf: string;
