@@ -56,4 +56,10 @@ export class AppComponent {
       siafi: [{ value: end ? end.siafi : '', disabled: true }],
     });
   }
+
+  saveOnStorage() {
+    const end = this.endForm.getRawValue() as End;
+    localStorage.setItem('endObject', JSON.stringify(end));
+    alert('Objeto salvo');
+  }
 }
