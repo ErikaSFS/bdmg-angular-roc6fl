@@ -10,9 +10,6 @@ export class AppService {
   constructor(private http: HttpClient) {}
 
   getEnd(): Observable<End> {
-    return this.http.get<End>(this.url).pipe(
-      (res) => res,
-      (error) => error
-    );
+    return this.http.get<End>(this.url)
   }
 }
