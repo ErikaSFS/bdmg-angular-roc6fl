@@ -1,7 +1,101 @@
-<h1>Teste técnico BDMG</h1>
-<hello></hello>
-<br />
+<main>
+  <form [formGroup]="endForm">
+    <div>
+      <mat-form-field class="cep-container w-50" appearance="outline">
+        <mat-label>CEP</mat-label>
+        <input
+        matInput
+        formControlName="cep"
+        [value]="endFrom.get('cep')?.value | cep"
+        maxlength="9"
+        (keyup)="debounce.next($event)"
+        />
 
-<div>Escreva seu código HTML abaixo:</div>
+        <mat-error *ngIf="endForm.get('cep')?.hasError('required')">
+          Insira os números
+        </mat-error>
+      </mat-form-field>
+    </div>
+    
+    
+    <div class="inputs-container">
+      <mat-form-field class="w-50"
+      appeareance="outline">
+        <mat-label>Logadouro</mat-label>
+        <input matInput
+        formControlName="logradouro" />
+      </mat-form-field>
 
-<end-form></end-form>
+      <div class="inputs-container">
+        <mat-form-field class="w-50"
+        appeareance="outline">
+          <mat-label>Bairro</mat-label>
+          <input matInput
+          formControlName="bairro" />
+        </mat-form-field>
+      </div>
+
+      <div class="inputs-container">
+        <mat-form-field class="w-50"
+        appeareance="outline">
+          <mat-label>Localidade</mat-label>
+          <input matInput
+          formControlName="localidade" />
+        </mat-form-field>
+
+
+        <section class="w-30 uf-section">
+          <mat-form-field class="w-40" id="uf" appearance="outline">
+            <mat-label>UF</mat-label>
+            <input matInput formControlName="uf" />
+          </mat-form-field>
+
+          <mat-form-field class="w-50" appearance="outline">
+            <mat-label>Complemento</mat-label>
+            <input
+              matInput
+              formControlName="complemento"
+              [value]="endform.get('complemento')?.value | complemento"
+            />
+          </mat-form-field>
+        </section>
+      </div>
+
+
+      <div class="inputs-container">
+        <mat-form-field appearance="outline">
+          <mat-label>IBGE</mat-label>
+          <input matInput formControlName="ibge" />
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline">
+          <mat-label>GIA</mat-label>
+          <input matInput formControlName="gia" />
+        </mat-form-field>
+
+        
+      <mat-form-field appearance="outline">
+        <mat-label>DDD</mat-label>
+        <input matInput formControlName="ddd" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>SIAFI</mat-label>
+        <input matInput formControlName="siafi" />
+      </mat-form-field>
+    </div>
+  </form>
+
+  <footer>
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="saveOnStorage()"
+      [disabled]="endForm.invalid"
+    >
+      Salvar
+    </button>
+  </footer>
+</main>
+  
+
