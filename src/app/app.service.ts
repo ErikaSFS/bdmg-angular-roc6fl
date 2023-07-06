@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { End } from '../model/end.model';
+import { End } from './model/end.model';
 
 @Injectable()
 export class AppService {
@@ -10,6 +10,6 @@ export class AppService {
   constructor(private http: HttpClient) {}
 
   getEnd(): Observable<End> {
-    return this.http.get<End>(this.url)
+    return this.http.get<End>(this.url);
   }
 }
