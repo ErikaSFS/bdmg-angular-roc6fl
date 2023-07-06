@@ -10,12 +10,7 @@
       >
         <mat-form-field class="form-full-width">
           <mat-label>CEP</mat-label>
-          <input
-            matInput
-            formControlName="cep"
-            name="CEP"
-            [value]="endForm.get('cep')?.value | formatCep"
-          >
+          <input matInput formControlName="cep" name="CEP" />
           <mat-error *ngIf="endForm.controls.cep.invalid">
             {{ displayCepErrorMessage() }}
           </mat-error>
