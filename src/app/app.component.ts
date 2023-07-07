@@ -14,6 +14,8 @@ export class AppComponent {
   name = 'Angular' + VERSION.major;
   endForm!: FormGroup;
   PAUSE = 400;
+
+  //É como debounceTime, mas o intervalo de tempo do silêncio da emissão é determinado por um segundo Observable.
   debounce = new Subject<any>();
 
   constructor(public service: AppService, private formBuilder: FormBuilder) {
@@ -23,6 +25,7 @@ export class AppComponent {
   ngOnInit(): void {
     this.getEnd();
 
+    //É como atraso, mas passa apenas a notificação mais recente de cada rajada de emissões.
     this.debounce.pipe(debounceTime(this.PAUSE)).subscribe((event) => {
       let value = event.target.value ? event.target.value.replace('-', '') : '';
 
@@ -42,6 +45,7 @@ export class AppComponent {
       error: () => alert('Há um erro ao fazer a consulta.'),
     });
   }
+
   buildForm(end?: End) {
     this.endForm = this.formBuilder.group({
       cep: [end ? end.cep : '', [Validators.required, Validators.maxLength(9)]],
@@ -57,6 +61,7 @@ export class AppComponent {
     });
   }
 
+  //armazena valor  e criando um novo par de valor
   saveOnStorage() {
     const end = this.endForm.getRawValue() as End;
     localStorage.setItem('endObject', JSON.stringify(end));
